@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Available Slots</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h1>Smart Parking System - Check Slots</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="check-slots.html">Check Slots</a></li>
+                <li><a href="view-amount.html">View Amount</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Section -->
+<main>
+    <section id="check-slots">
+        <h2>Check Available Slots</h2>
+        <p>Current Available Slots: 50+</p>
+        <form id="checkSlotsForm">
+            <label for="location">Select Location:</label>
+            <select id="location">
+                <option value="downtown">Downtown</option>
+                <option value="airport">Airport</option>
+                <option value="mall">Shopping Mall</option>
+            </select>
+            <button type="submit">Check Slots</button>
+        </form>
+        <p id="slotInfo">Available slots in selected location: 50+</p>
+    </section>
+</main>
+
+<script>
+    document.getElementById('checkSlotsForm').onsubmit = function(e) {
+        e.preventDefault();
+        const selectedLocation = document.getElementById('location').value;
+        let message = "";
+
+        switch (selectedLocation) {
+            case "downtown":
+                message = "Available slots in Downtown: 50+";
+                break;
+            case "airport":
+                message = "Available slots at Airport: 50+";
+                break;
+            case "mall":
+                message = "Available slots at Shopping Mall: 50+";
+                break;
+            default:
+                message = "Please select a valid location.";
+        }
+
+        document.getElementById('slotInfo').innerText = message;
+    }
+</script>
+
+</body>
+</html>
